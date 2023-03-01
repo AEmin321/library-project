@@ -1,0 +1,66 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #EEEEEE;
+}
+
+/* header section */
+header {
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    background-color: #232931;
+    align-items: center;
+}
+
+header svg {
+    width: 22px;
+}
+
+.add-btn {    
+    width: 90px;
+    position: fixed;
+    bottom: 80px;
+    right: 80px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background-color: #4ECCA3;
+    text-align: center;
+    padding: 8px 36px;
+    border: none;
+    cursor: pointer;
+    color: #232931;
+}
+
+/* footer section */
+footer {
+    text-align: center;
+    padding: 12px 0;
+    color: #232931;
+}
+
+/* main section styles */
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 33px;
+}
+
+main>div {
+    display: flex;
+    justify-content: space-around;
+    background-color: #EEEEEE;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+
+/* main section  */
+main {
+    flex: 1;
+}
