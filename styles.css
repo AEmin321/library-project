@@ -13,8 +13,9 @@ header {
     display: flex;
     justify-content: space-around;
     padding: 12px 0;
-    background-color: #232931;
+    background-color: #4ECCA3;
     align-items: center;
+    
 }
 
 header svg {
@@ -30,12 +31,12 @@ header svg {
 }
 
 .login-btn {
-    background-color: #4ECCA3;
+    background-color: #232931;
     text-align: center;
     padding: 8px 36px;
     border: none;
     cursor: pointer;
-    color: #232931;
+    color: #EEEEEE;
 }
 
 /* footer section */
@@ -47,20 +48,40 @@ footer {
 
 /* main section styles */
 main {
+    flex: 1;
     display: flex;
     flex-direction: column;
     padding: 33px;
 }
 
 main>div {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 1fr 1fr;
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px;
     background-color: #EEEEEE;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
+.book-status, .book-remove {
+    border: none;
+    cursor: pointer;
+    padding: 5px 33px;
+    height: 40px;
+}
 
-/* main section  */
-main {
-    flex: 1;
+.book-status {
+    background-color: #4ECCA3;
+    color: white;
+}
+
+.book-remove {
+    background-color: #F85F73;
+    color: white;
+}
+
+.card-header {
+    background-color: #393E46;
+    color: white;
 }
