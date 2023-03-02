@@ -1,36 +1,27 @@
 const mainSection = document.querySelector('main');
 
-let myLibrary = [
-    {
-        title:"filani",
-        author:"filanias",
-        pages:324,
-        read:false
-    },
-    {
-        title:"alksdjf",
-        author:"alksdjkf;la",
-        pages:22,
-        read:true
-    },
-    {
-        title:"fukin",
-        author:"no way im",
-        pages:222,
-        read:true
-    }
-];
+let myLibrary = [];
 
+addBookToLibrary();
 displayBooks();
 
-function Book () {
-    // constructor goes here
+
+
+function Book (title,author,pages,read) {
+    this.title=title;
+    this.author=author;
+    this.pages=pages;
+    this.read=read;
 }
 
 function addBookToLibrary () {
-
+    let book1=new Book("Hello","iamtheauthor",123,true);
+    let book2=new Book("bye","meamo",322,true);
+    myLibrary.push(book1,book2);
 }
 
+
+// function to display the books list to table
 function displayBooks () {
     myLibrary.forEach((item)=>{
         const bookCard=document.createElement('div');
@@ -63,6 +54,8 @@ function displayBooks () {
     })
 }
 
+
+// handles the book status read or not read
 function handleBookStatus (item) {
     if (item){
         return "Read";

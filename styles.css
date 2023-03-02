@@ -56,7 +56,7 @@ main {
 
 main>div {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
     align-items: center;
     padding: 0 10px;
     gap: 10px;
@@ -67,8 +67,7 @@ main>div {
 .book-status, .book-remove {
     border: none;
     cursor: pointer;
-    padding: 5px 33px;
-    height: 40px;
+    padding: 11px 30px;
 }
 
 .book-status {
@@ -87,3 +86,25 @@ main>div {
     padding: 0 17px;
     color: white;
 }
+
+/* form overlay */
+.form-overlay>form {
+    background-color: #232931;
+    color: #EEEEEE;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    height: 440px;
+    padding: 20px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index: 1000;
+}
+
+
+
+
