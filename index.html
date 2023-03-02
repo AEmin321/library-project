@@ -13,14 +13,14 @@
             <svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3V18H12V3H9M12 5L16 18L19 17L15 4L12 5M5 5V18H8V5H5M3 19V21H21V19H3Z" /></svg>
         </div>
         <div class="add-book-wrapper">
-            <a href="#"><svg class="add-btn" fill="#4ECCA3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Add Book</title><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg></a>
+            <a class="btn-add" href="#"><svg class="add-btn" fill="#4ECCA3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Add Book</title><path d="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg></a>
         </div>
         <div class="user-btn-wrapper">
             <button class="login-btn">Log in</button>
         </div>
     </header>
     <main>
-        <div class="book-card card-header">
+        <div class="card-header">
             <p class="book-name">Name</p>
             <p class="book-author">Author</p>
             <p class="book-pages">Pages</p>
@@ -28,22 +28,22 @@
             <p></p>
         </div>
         <div class="form-overlay">
-            <form action="#">
+            <form id="form" action="#" method="post">
                 <div class="title">
                     <label for="input-title">Name :</label>
-                    <input id="input-title" name="title" type="text">
+                    <input id="input-title" name="title" type="text" required>
                 </div>
                 <div class="author">
                     <label for="input-author">Author :</label>
-                    <input id="input-author" name="author" type="text">
+                    <input id="input-author" name="author" type="text" required>
                 </div>
                 <div class="pages">
                     <label for="input-pages">Pages :</label>
-                    <input id="input-pages" name="pages" type="number">
+                    <input id="input-pages" name="pages" type="number" required>
                 </div>
                 <div class="status checkbox-wrapper-31">
-                    <input id="input-status" name="status" type="checkbox"/>
-                    <label for="input-status">i read the book.</label>
+                    <input id="input-status" name="status" type="checkbox" />
+                    <label for="input-status">I read the book.</label>
                 </div>
                 <div class="add">
                     <button class="submit-btn">Add Book</button>
