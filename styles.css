@@ -24,10 +24,12 @@ header svg {
 
 .add-btn {    
     width: 90px;
+    display: block;
     position: fixed;
     bottom: 80px;
     right: 80px;
     cursor: pointer;
+    z-index: 1001;
 }
 
 .login-btn {
@@ -92,7 +94,7 @@ main>div {
     background-color: #232931;
     color: #EEEEEE;
     position: fixed;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
@@ -113,6 +115,14 @@ form>div>label:not(:last-child) {
 .submit-btn {
     background-color: #4ECCA3;
     padding: 10px 60px;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: #F05454;
+    padding: 10px 68px;
+    margin-top: 0;
     border: none;
     cursor: pointer;
 }

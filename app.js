@@ -1,5 +1,8 @@
 const mainSection = document.querySelector('main');
 const form = document.querySelector('#form');
+const addBtn=document.querySelector('.add-btn');
+const cancelBtn=document.querySelector('.cancel-btn');
+
 
 
 let myLibrary = [];
@@ -29,13 +32,30 @@ function addBookToLibrary () {
         myLibrary.push(newBook);
 
         displayBooks();
+        resetOverlay();
     })
 }
 
-
+setOverlay();
 addBookToLibrary();
 
 
+//displaying overlay on clicking
+function setOverlay () {
+    addBtn.addEventListener('click',()=>{
+        form.style.display='flex';
+        addBtn.style.display='none';
+    })
+}
+
+//reseting the values of input and hiding overlay
+function resetOverlay () {
+    form.style.display='none';
+    addBtn.style.display='block'; 
+    
+    // reseting input values
+    form.reset();
+}
 
 // function to display the books list to table
 function displayBooks () {
