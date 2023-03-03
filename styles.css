@@ -77,6 +77,10 @@ main>div {
     color: white;
 }
 
+.book-status-nr {
+    background-color: #F8B400;
+}
+
 
 .book-remove {
     background-color: #F85F73;

@@ -7,16 +7,44 @@ const cancelBtn=document.querySelector('.cancel-btn');
 
 let myLibrary = [];
 
-
-
-
-
 function Book (title,author,pages,read) {
     this.title=title;
     this.author=author;
     this.pages=pages;
     this.read=read;
 }
+
+Book.prototype.toggleReadStatus=function () {
+    if (this.read==true) {
+        this.read=false;
+    }else {
+        this.read=true;
+    }
+}
+
+
+setOverlay();
+addBookToLibrary();
+
+//Updating the read status button on clicking
+function updateStatus (book) {
+    const displayedBooks = document.querySelectorAll('.book-status');
+
+    displayedBooks.forEach((item)=>{
+        item.addEventListener('click',()=>{
+            if(item.textContent==='Read'){
+                item.style.backgroundColor='#FABB51';
+                item.textContent='Not Read';
+                book.toggleReadStatus();
+            }else {
+                item.style.backgroundColor='#4ECCA3';
+                item.textContent='Read';
+                book.toggleReadStatus();
+            }
+        })
+    })
+}
+
 
 // adding the input values to the library object array
 function addBookToLibrary () {
@@ -33,12 +61,9 @@ function addBookToLibrary () {
 
         displayBooks();
         resetOverlay();
+        updateStatus(newBook);
     })
 }
-
-setOverlay();
-addBookToLibrary();
-
 
 //displaying overlay on clicking
 function setOverlay () {
@@ -55,6 +80,10 @@ function resetOverlay () {
     
     // reseting input values
     form.reset();
+}
+
+function toggleRead () {
+
 }
 
 // function to display the books list to table
@@ -80,7 +109,7 @@ function displayBooks () {
         bookName.textContent=item.title;
         bookAuthor.textContent=item.author;
         bookPages.textContent=item.pages;
-        bookStatus.textContent=handleBookStatus(item.read);
+        bookStatus.textContent=handleBookStatus(item.read,bookStatus);
         bookRemove.textContent="Remove";
 
         bookCard.appendChild(bookName);
@@ -102,12 +131,13 @@ function resetDisplay () {
 }
 
 
-// handles the book status read or not read
-function handleBookStatus (item) {
+// handles the book status read or not read changes background color according to it
+function handleBookStatus (item,status) {
     if (item){
         return "Read";
     }
     else {
+        status.style.backgroundColor='#FABB51';
         return "Not Read";
     }
 }
