@@ -26,22 +26,35 @@ Book.prototype.toggleReadStatus=function () {
 setOverlay();
 addBookToLibrary();
 
-function removeBook (book) {
+//Removing the selected book card and removing from obj array
+function removeBook () {
     const displayedBooks = document.querySelectorAll('.book-remove');
 
     displayedBooks.forEach((item)=>{
-        item.addEventListener('click',()=>{
-            
+        item.addEventListener('click',(e)=>{
+            const cardElement=e.target.parentElement;
+            cardElement.remove();
+            removeBookObject(e.target.parentElement.childNodes[0].textContent);
         })
     })
 }
 
+function removeBookObject (bookTitle) {
+    myLibrary.forEach((book)=>{
+        if (book.title==bookTitle) {
+            const index=myLibrary.indexOf(book);
+            myLibrary.splice(index,1);
+            // console.log (myLibrary);
+        }
+    })
+}
 
-//founds clicked book from object array and assigns book status
-function getBookIndex (currentBook) {
+
+//founds clicked book from object array and updates book status
+function updateBookIndex (bookTitle) {
 
     myLibrary.forEach((book)=>{
-        if (book.title==currentBook){
+        if (book.title==bookTitle){
             book.toggleReadStatus();
         }
     })
@@ -56,15 +69,14 @@ function updateStatus (book) {
         
         item.addEventListener('click',(e)=>{
         let index=e.target.parentElement.childNodes[0].textContent;
-        
             if(item.textContent=='Read'){
                 item.style.backgroundColor='#FABB51';
                 item.textContent='Not Read';
-                getBookIndex(index);
+                updateBookIndex(index);
             }else {
                 item.style.backgroundColor='#4ECCA3';
                 item.textContent='Read';
-                getBookIndex(index);
+                updateBookIndex(index);
             }
         })
     })
@@ -87,6 +99,7 @@ function addBookToLibrary () {
         displayBooks();
         resetOverlay();
         updateStatus(newBook);
+        removeBook();
     })
 }
 
