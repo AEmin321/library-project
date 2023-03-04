@@ -26,20 +26,45 @@ Book.prototype.toggleReadStatus=function () {
 setOverlay();
 addBookToLibrary();
 
+function removeBook (book) {
+    const displayedBooks = document.querySelectorAll('.book-remove');
+
+    displayedBooks.forEach((item)=>{
+        item.addEventListener('click',()=>{
+            
+        })
+    })
+}
+
+
+//founds clicked book from object array and assigns book status
+function getBookIndex (currentBook) {
+
+    myLibrary.forEach((book)=>{
+        if (book.title==currentBook){
+            book.toggleReadStatus();
+        }
+    })
+}
+
+
 //Updating the read status button on clicking
 function updateStatus (book) {
     const displayedBooks = document.querySelectorAll('.book-status');
 
     displayedBooks.forEach((item)=>{
-        item.addEventListener('click',()=>{
-            if(item.textContent==='Read'){
+        
+        item.addEventListener('click',(e)=>{
+        let index=e.target.parentElement.childNodes[0].textContent;
+        
+            if(item.textContent=='Read'){
                 item.style.backgroundColor='#FABB51';
                 item.textContent='Not Read';
-                book.toggleReadStatus();
+                getBookIndex(index);
             }else {
                 item.style.backgroundColor='#4ECCA3';
                 item.textContent='Read';
-                book.toggleReadStatus();
+                getBookIndex(index);
             }
         })
     })
