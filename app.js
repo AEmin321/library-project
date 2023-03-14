@@ -7,18 +7,19 @@ const cancelBtn=document.querySelector('.cancel-btn');
 
 let myLibrary = [];
 
-function Book (title,author,pages,read) {
-    this.title=title;
-    this.author=author;
-    this.pages=pages;
-    this.read=read;
-}
-
-Book.prototype.toggleReadStatus=function () {
-    if (this.read==true) {
-        this.read=false;
-    }else {
-        this.read=true;
+class Book {
+    constructor (title,author,pages,read) {
+        this.title=title;
+        this.author=author;
+        this.pages=pages;
+        this.read=read;
+    }
+    toggleReadStatus(){
+        if (this.read==true) {
+            this.read=false;
+        }else {
+            this.read=true;
+        }
     }
 }
 
